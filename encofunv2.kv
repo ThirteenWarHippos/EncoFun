@@ -1,0 +1,85 @@
+#:kivy 1.11.1
+
+<GameScreen>:
+
+    dictionary: dictionary
+    key: key
+    input: input
+    output: output
+
+
+    FloatLayout:
+        pos: 0, 0
+        size: root.width, root.height
+
+        GridLayout:
+            cols: 2
+            pos_hint: {'x': .1, 'y': .5}
+            size_hint: None, None
+            size: root.width * 0.8, root.height * 0.1
+
+            Label:
+                text: 'Input:'
+
+            Label:
+                text: 'Output:'
+
+
+        GridLayout:
+            cols: 2
+            pos_hint: {'x': .1, 'y': .3}
+            size_hint: None, None
+            size: root.width * .8, root.height * .2
+
+            TextInput:
+                id: input
+
+            TextInput:
+                id: output
+
+        Button:
+            text: 'Encode'
+            pos_hint: {'x':0.1 , 'y':0.1 }
+            size_hint: 0.2, 0.1
+            on_press: root.encrypt()
+
+        Button:
+            text: 'Decode'
+            pos_hint: {'x':0.4 , 'y':0.1 }
+            size_hint: 0.2, 0.1
+            on_press: root.decrypt()
+
+        Button:
+            text: 'Autodict'
+            pos_hint: {'x': 0.7, 'y': 0.1}
+            size_hint: 0.2, 0.1
+            on_press: root.new_autodict()
+        Label:
+            text: 'Dictionary:'
+            pos_hint: {'x': 0.1, 'y': 0.7}
+            size_hint: None, None
+            size: root.width * .3, root.height * .1
+
+        TextInput:
+            id: dictionary
+            pos_hint: {'x': 0.4, 'y': 0.7}
+            size_hint: None, None
+            size: root.width * .5, root.height * .1
+
+        Label:
+            text: 'Key:'
+            pos_hint: {'x': 0.1, 'y': 0.6}
+            size_hint: None, None
+            size: root.width * .3, root.height * .1
+
+        TextInput:
+            id: key
+            pos_hint: {'x': 0.4, 'y': 0.6}
+            size_hint: None, None
+            size: root.width * .5, root.height * .1
+
+        Label:
+            text: 'EncoFun v2.0'
+            pos_hint: {'x': 0.1, 'y': .85}
+            size_hint: None, None
+            size: root.width * .8, root.height * .1
